@@ -14,17 +14,17 @@ public class Player : MonoBehaviour
 
     public float jumpForce;
 
-    public float horInput { get; set; }
-    
-    public bool vertInput { get; set; }
-    
-    public bool isGrounded { get; set; }
-    
-    public bool isJumping { get; set; }
-    
-    public bool inFinish { get; set; }
-    
-    public bool inDeath { get; set; }
+    public float horInput;
+
+    public bool vertInput;
+
+    public bool isGrounded;
+
+    public bool isJumping;
+
+    public bool inFinish;
+
+    public bool inDeath;
     
     private GameObject playerCamera;
 

@@ -173,5 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionLeft: 1
   speed: 10
-  timeToDestroy: 2.13
+  timeToDestroy: 5
   currentTime: 0

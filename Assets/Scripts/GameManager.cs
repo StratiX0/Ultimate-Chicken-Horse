@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private float time = 0;
     public TextMeshProUGUI timeText;
     [SerializeField] GameObject playerPrefab;
-    private GameObject player;
+    private GameObject _player;
     public Player playerScript;
     
     public static GameManager Instance;
@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        player = Instantiate(playerPrefab, new Vector3(-20, 0.5f, 0), Quaternion.identity);
-        playerScript = player.GetComponent<Player>();
+        _player = Instantiate(playerPrefab, new Vector3(-20, 0.5f, 0), Quaternion.identity);
+        playerScript = _player.GetComponent<Player>();
         timeText = GameObject.Find("Time Value").GetComponent<TextMeshProUGUI>();
     }
     
@@ -37,20 +37,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Finish())
-        {
-            Debug.Log("Player in finish");
-        }
-        else if (!Death())
+        if (!Death() && !Finish())
         {
             UpdateTime();
         }
         
-        if (player != null && Death())
+        if (_player != null && Death())
         {
-            Debug.Log("Player in death");
             playerScript.playerTransform.DetachChildren();
-            Destroy(player);
+            Destroy(_player);
         }
     }
     
@@ -66,10 +61,7 @@ public class GameManager : MonoBehaviour
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     public bool Death()
@@ -78,9 +70,6 @@ public class GameManager : MonoBehaviour
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 }

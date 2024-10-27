@@ -24,10 +24,6 @@ public class Arrow : MonoBehaviour
         {
             Instance = this;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void Start()
